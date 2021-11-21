@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { ShoppingCartProvider, initialState } from './context/ShoppingCart';
+import { ShoppingReducer } from './context/ShoppingReducer'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ShoppingCartProvider initialState={initialState} reducer={ShoppingReducer}>
+
+      <App />
+    </ShoppingCartProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
